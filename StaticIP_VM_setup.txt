@@ -1,0 +1,35 @@
+Go to OracleVM, Click on specific VM, go to Settings, then Network, then apply the following:
+{
+
+Network-Adapter1 = NAT
+
+Network-Adapter2 = the following:
+   {
+Attached to -> Bridge Adapter
+
+Promiscuous Mode -> Allow All
+
+Check Cable Connected.
+
+Then click OK.
+   }
+
+}
+
+cd /etc/sysconfig/network-scripts/
+vi ifcfg-enp0s8
+then within the file, put in:
+
+
+DEVICE=enp0s8
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.1.15
+NETMASK=255.255.255.0
+
+
+
+
+Then enter on command line:
+systemctl restart network
+ip addr
