@@ -33,3 +33,29 @@ NETMASK=255.255.255.0
 Then enter on command line:
 systemctl restart network
 ip addr
+
+_________________________________________________________________________________________________________________
+
+
+
+Set Adapter 1 to Bridged, 
+
+ipconfig, use Default Gateway, then paste the folowing as needed in enp0s3 file located at /etc/sysconfig/network-scripts/
+
+BOOTPROTO=static
+ONBOOT=yes
+MN_CONTROLLED=no
+NETMASK=255.255.255.0
+GATEWAY=[Whatever the Default Gateway from before was]
+IPADDR=192.168.1.15
+
+
+
+
+
+
+
+
+
+
+
