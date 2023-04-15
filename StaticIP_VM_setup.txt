@@ -49,6 +49,27 @@ NETMASK=255.255.255.0
 GATEWAY=[Whatever the Default Gateway from before was]
 IPADDR=192.168.1.15
 
+_________________________________________________________________________________________________________________
+
+
+Go to /etc/init.d
+Create a file with following, I have kept the name as “net-autostart“
+{
+#!/bin/bash
+# Solution for "No Internet Connection from VMware"
+#
+### BEGIN INIT INFO
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+### END INIT INFO
+dhclient -v
+}
+
+chmod 755 net-autostart
+chkconfig --add net-autostart
+
+Restart VM
+
 
 
 
